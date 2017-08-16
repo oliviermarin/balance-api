@@ -10,7 +10,6 @@ public class TriCount {
     private String title;
     private String currency;
     private String description;
-    private Attendee owner;
     private List<Attendee> attendees;
 
     public TriCount () {}
@@ -58,14 +57,6 @@ public class TriCount {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Attendee getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Attendee owner) {
-        this.owner = owner;
     }
 
     public List<Attendee> getAttendees() {

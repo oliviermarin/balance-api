@@ -7,6 +7,7 @@ public class Attendee {
 	private String email;
 	private boolean intoArrears;
 	private double balance;
+	private boolean owner;
 
 	public Attendee () {}
 
@@ -63,8 +64,16 @@ public class Attendee {
 		this.balance = balance;
 	}
 
+	public boolean isOwner() {
+		return owner;
+	}
+
+	public void setOwner(boolean owner) {
+		this.owner = owner;
+	}
+
 	@Override
 	public String toString() {
-  		return "Attendee{" + "id=" + this.id + ", name=" + this.name + ", email=" + this.email + "intoArrears=" + this.intoArrears + "balance=" + this.balance + '}';
+  		return "Attendee{" + "id=" + this.id + ", name=" + this.name + ", email=" + this.email + ", intoArrears=" + this.intoArrears + ", balance=" + this.balance + ", owner=" + this.owner + '}';
 	}
 }
