@@ -5,12 +5,22 @@ public class Attendee {
 	private Long id;
 	private String name;
 	private String email;
+	private boolean intoArrears;
+	private double balance;
 
 	public Attendee () {}
 
-	public Attendee (String name, String email) {
+	public Attendee ( String name, String email ) {
 		this.name = name;
 		this.email = email;
+	}
+
+	public Attendee ( Long id, String name, String email, boolean intoArrears, double balance ) {
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.intoArrears = intoArrears;
+		this.balance = balance;
 	}
 
 	public Long getId(){
@@ -37,9 +47,24 @@ public class Attendee {
 		this.email = email;
 	}
 
+	public boolean isIntoArrears() {
+		return intoArrears;
+	}
+
+	public void setIntoArrears(boolean intoArrears) {
+		this.intoArrears = intoArrears;
+	}
+
+	public Double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(Double balance) {
+		this.balance = balance;
+	}
 
 	@Override
 	public String toString() {
-  	return "Attendee{" + "id=" + this.id + ", name=" + this.name + ", email=" + this.email + '}';
+  		return "Attendee{" + "id=" + this.id + ", name=" + this.name + ", email=" + this.email + "intoArrears=" + this.intoArrears + "balance=" + this.balance + '}';
 	}
 }

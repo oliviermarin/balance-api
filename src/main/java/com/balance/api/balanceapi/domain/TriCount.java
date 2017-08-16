@@ -4,7 +4,7 @@ import com.balance.api.balanceapi.domain.Attendee;;
 
 public class TriCount {
     
-    private Long Id;
+    private Long id;
     private String title;
     private String currency;
     private String description;
@@ -18,12 +18,19 @@ public class TriCount {
         this.description = description;
     }
 
+    public TriCount ( Long id, String title, String currency, String description ) {
+        this.id = id;
+        this.title = title;
+        this.currency = currency;
+        this.description = description;
+    }
+
     public Long getId() {
-        return Id;
+        return this.id;
     }
 
     public void setId(Long id) {
-        this.Id = id;
+        this.id = id;
     }
 
     public String getTitle() {

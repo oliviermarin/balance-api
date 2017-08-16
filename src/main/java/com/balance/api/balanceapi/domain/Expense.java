@@ -23,7 +23,7 @@ public class Expense {
     }
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
@@ -31,7 +31,7 @@ public class Expense {
     }
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {
@@ -39,7 +39,7 @@ public class Expense {
     }
 
     public Double getAmount() {
-        return amount;
+        return this.amount;
     }
 
     public void setAmount(Double amount) {
@@ -47,7 +47,7 @@ public class Expense {
     }
 
     public Date getDate() {
-        return date;
+        return this.date;
     }
 
     public void setDate(Date date) {
@@ -55,7 +55,7 @@ public class Expense {
     }
 
     public Attendee getBuyer() {
-        return buyer;
+        return this.buyer;
     }
 
     public void setBuyer(Attendee buyer) {
@@ -63,10 +63,15 @@ public class Expense {
     }
 
     public List<Attendee> getAttendees() {
-        return attendees;
+        return this.attendees;
     }
 
     public void setAttendees(List<Attendee> attendees) {
         this.attendees = attendees;
+    }
+
+    @Override
+    public String toString() {
+        return "Expense{id=" + this.id + ", title=" + this.title + ", date=" + this.date + ", amount=" + this.amount + ", buyer=" + this.buyer.toString() + ", attendees=" + ((this.attendees.isEmpty()) ? 0 : this.attendees.size()) + "}";
     }
 } 

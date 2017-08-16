@@ -1,5 +1,11 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
+.mvn
+.settings
+.vscode
+.gitignore
+mvnw
+mvnw.cmd
 
 ### STS ###
 .apt_generated
