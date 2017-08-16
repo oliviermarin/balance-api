@@ -1,5 +1,7 @@
 package com.balance.api.balanceapi.domain;
 
+import java.util.List;
+
 import com.balance.api.balanceapi.domain.Attendee;;
 
 public class TriCount {
@@ -9,6 +11,7 @@ public class TriCount {
     private String currency;
     private String description;
     private Attendee owner;
+    private List<Attendee> attendees;
 
     public TriCount () {}
 
@@ -63,5 +66,13 @@ public class TriCount {
 
     public void setOwner(Attendee owner) {
         this.owner = owner;
+    }
+
+    public List<Attendee> getAttendees() {
+        return attendees;
+    }
+
+    public void setAttendees(List<Attendee> attendees) {
+        this.attendees = attendees;
     }
 }
