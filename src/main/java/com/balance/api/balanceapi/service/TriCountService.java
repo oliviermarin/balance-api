@@ -1,14 +1,11 @@
 package com.balance.api.balanceapi.service;
 
 import com.balance.api.balanceapi.domain.TriCount;
-import com.balance.api.balanceapi.domain.Attendee;
 
 import org.springframework.stereotype.Service;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;;
@@ -26,23 +23,21 @@ public class TriCountService implements ITriCountService {
     }
 
     @Override
+    public TriCount findTriCountById ( Long id ) {
+        StringBuilder sql = new StringBuilder("");
+        sql.append("SELECT tcts.id, tcts.title, tcts.currency, tcts.description ");
+        sql.append("FROM tri_counts tcts WHERE tcts.id = ?");
+
+        return (TriCount)jtm.queryForObject(sql.toString(), new Object[]{id},new BeanPropertyRowMapper(TriCount.class));
+    }
+
+    @Override
     public List<TriCount> findAll() {
         StringBuilder sql = new StringBuilder("");
         sql.append("SELECT tcts.id, tcts.title, tcts.currency, tcts.description ");
         sql.append("FROM tri_counts tcts ");
         
-        return (List<TriCount>)jtm.query(sql.toString(), new RowMapper<TriCount>(){
-            @Override
-            public TriCount mapRow(ResultSet rs, int rowNum) throws SQLException {
-                
-                TriCount triCount = new TriCount(   rs.getLong("id"),
-                                                    rs.getString("title"), 
-                                                    rs.getString("currency"),
-                                                    rs.getString("description"));
-                                                
-                return triCount;
-            }
-        });
+        return (List<TriCount>)jtm.query(sql.toString(), new BeanPropertyRowMapper(TriCount.class));
     }
 
 }

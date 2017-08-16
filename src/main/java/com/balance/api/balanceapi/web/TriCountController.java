@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +27,14 @@ public class TriCountController {
 
     @Autowired
     private ITriCountService triCountService;
-    
+
+    @GetMapping("/tricount/{id}")
+    public @ResponseBody TriCount getTricountById(@PathVariable Long id) {
+        TriCount triCount = this.triCountService.findTriCountById(id);
+        triCount.setAttendees(this.attendeeService.findByTriCountId(id));
+        return triCount;
+    }
+
     @GetMapping("/tricounts")
     public @ResponseBody List<TriCount> getAllTricounts () {
         return this.triCountService.findAll();
