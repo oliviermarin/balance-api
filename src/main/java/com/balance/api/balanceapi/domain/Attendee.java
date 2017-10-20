@@ -3,25 +3,23 @@ package com.balance.api.balanceapi.domain;
 public class Attendee {
 
 	private Long id;
-	private String name;
+	private String firstname;
+	private String lastname;
 	private String email;
-	private boolean intoArrears;
-	private double balance;
-	private boolean owner;
 
 	public Attendee () {}
 
-	public Attendee ( String name, String email ) {
-		this.name = name;
+	public Attendee ( String firstname, String lastname, String email ) {
+		this.firstname = firstname;
+		this.lastname = lastname;
 		this.email = email;
 	}
 
-	public Attendee ( Long id, String name, String email, boolean intoArrears, double balance ) {
+	public Attendee ( Long id, String firstname, String lastname, String email ) {
 		this.id = id;
-		this.name = name;
+		this.firstname = firstname;
+		this.lastname = lastname;
 		this.email = email;
-		this.intoArrears = intoArrears;
-		this.balance = balance;
 	}
 
 	public Long getId(){
@@ -32,48 +30,27 @@ public class Attendee {
 		this.id = id;
 	}
 
-	public String getName(){
-		return this.name;
+	public String getFirstname() {
+		return this.firstname;
 	}
 
-	public void setName(String name){
-		this.name = name;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
-	public String getEmail(){
+	public String getLastname() {
+		return this.lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public String getEmail() {
 		return this.email;
 	}
 
-	public void setEmail(String email){
+	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public boolean isIntoArrears() {
-		return intoArrears;
-	}
-
-	public void setIntoArrears(boolean intoArrears) {
-		this.intoArrears = intoArrears;
-	}
-
-	public Double getBalance() {
-		return balance;
-	}
-
-	public void setBalance(Double balance) {
-		this.balance = balance;
-	}
-
-	public boolean isOwner() {
-		return owner;
-	}
-
-	public void setOwner(boolean owner) {
-		this.owner = owner;
-	}
-
-	@Override
-	public String toString() {
-  		return "Attendee{" + "id=" + this.id + ", name=" + this.name + ", email=" + this.email + ", intoArrears=" + this.intoArrears + ", balance=" + this.balance + ", owner=" + this.owner + '}';
 	}
 }

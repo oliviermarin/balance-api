@@ -12,11 +12,9 @@ public class AttendeeRowMapper implements RowMapper<Attendee> {
     public Attendee mapRow(ResultSet rs, int rowNum) throws SQLException {
         Attendee attendee = new Attendee();
         attendee.setId(rs.getLong("id"));
-        attendee.setName(rs.getString("name"));
+        attendee.setFirstname(rs.getString("firstname"));
+        attendee.setLastname(rs.getString("lastname"));
         attendee.setEmail(rs.getString("email"));
-        attendee.setIntoArrears(rs.getBoolean("into_arrears"));
-        attendee.setBalance(rs.getDouble("balance"));
-        attendee.setOwner(rs.getBoolean("owner"));
         return attendee;
     }
     

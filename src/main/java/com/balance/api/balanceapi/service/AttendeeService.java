@@ -17,19 +17,19 @@ public class AttendeeService implements IAttendeeService {
 
 	@Override
   	public List<Attendee> findAll () {
-  		String sql = "SELECT atds.id, atds.name, atds.email, atds.into_arrears, atds.balance, atds.owner FROM attendees atds";
+  		String sql = "SELECT atds.id, atds.firstname, atds.lastname, atds.email FROM attendees atds";
 		return (List<Attendee>)jtm.query(sql, new AttendeeRowMapper());
 	}
 	
 	@Override
 	public Attendee findById (Long id) {
-		String sql = "SELECT atds.id, atds.name, atds.email, atds.into_arrears, atds.balance, atds.owner FROM attendees atds WHERE atds.id = ?";
+		String sql = "SELECT atds.id, atds.firstname, atds.lastname, atds.email FROM attendees atds WHERE atds.id = ?";
 		return (Attendee)jtm.queryForObject(sql, new AttendeeRowMapper(), id);
 	}
 
 	@Override
 	public List<Attendee> findByTriCountId ( Long triCountId ) {
-		String sql = "SELECT atds.id, atds.name, atds.email, atds.into_arrears, atds.balance, atds.owner FROM attendees atds WHERE atds.tricount_id = ?";
+		String sql = "SELECT atds.id, atds.firstname, atds.lastname, atds.email FROM attendees atds WHERE atds.tricount_id = ?";
 		return (List<Attendee>)jtm.query(sql, 
 		new Object[]{triCountId},
 		new AttendeeRowMapper());
